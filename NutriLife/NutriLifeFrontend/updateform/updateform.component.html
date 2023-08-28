@@ -1,0 +1,105 @@
+<app-navbaruser></app-navbaruser>
+
+<section style="background-color: #eee; height: 1400px;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-8 col-xl-6">
+        <div class="card rounded-3">
+          <div class="card-body p-4 p-md-5">
+            <h2 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2" style="text-align: center;">Update your program</h2>
+
+            <form class="px-md-2" [formGroup]="updateProgramForm" (ngSubmit)="updateProgram()">
+              <div class="form-outline mb-4" style="border-bottom: 1px solid #BDBDBD;">
+                <input formControlName="name" type="text" id="name" class="form-control" />
+                <label class="form-label" for="name">Title</label>
+              </div>
+              <div class="form-outline mb-4" style="border-bottom: 1px solid #BDBDBD;">
+                <input formControlName="breakfast" type="text" id="breakfast" class="form-control" />
+                <label class="form-label" for="breakfast">Breakfast</label>
+              </div>
+              <div class="form-outline mb-4" style="border-bottom: 1px solid #BDBDBD;">
+                <input formControlName="lunch" type="text" id="lunch" class="form-control" />
+                <label class="form-label" for="lunch">Lunch</label>
+              </div>
+              <div class="form-outline mb-4" style="border-bottom: 1px solid #BDBDBD;">
+                <input formControlName="dinner" type="text" id="dinner" class="form-control" />
+                <label class="form-label" for="dinner">Dinner</label>
+              </div>
+              <div class="form-outline mb-4" style="border-bottom: 1px solid #BDBDBD;">
+                <input formControlName="snack" type="text" id="snack" class="form-control" />
+                <label class="form-label" for="snack">Snack</label>
+              </div>
+
+              <div class="form-outline mb-4" style="border-bottom: 1px solid #BDBDBD;">
+                <input formControlName="calories" type="text" id="calories" class="form-control" />
+                <label class="form-label" for="calories">Total Calories (kcal)</label>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4 mb-4">
+
+                  <div class="form-check" >
+                    <input formControlName="glutenFree" class="form-check-input" type="checkbox" value="" id="glutenCheck">
+                    <label class="form-check-label" for="glutenCheck" style="margin-top: 2px;">
+                      Gluten Free
+                    </label>
+                  </div>
+
+                </div>
+                <div class="col-md-4 mb-4">
+
+                  <div class="form-check">
+                    <input formControlName="lactoseIntolerant" class="form-check-input" type="checkbox" value="" id="diaryCheck">
+                    <label class="form-check-label" for="diaryCheck" style="margin-top: 2px;">
+                      Diary Free
+                    </label>
+                  </div>
+
+                </div>
+                <div class="col-md-4 mb-4">
+
+                  <div class="form-check">
+                    <input formControlName="diabetesFriendly" class="form-check-input" type="checkbox" value="" id="diabetesCheck">
+                    <label class="form-check-label" for="diabetesCheck" style="margin-top: 2px;">
+                      Diabetes Friendly
+                    </label>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="form-outline mb-4">
+                <mat-form-field style="width: 100%;">
+                  <mat-label>Diet Type</mat-label>
+                  <mat-select disableOptionCentering panelClass="nutrition_pannel" [(ngModel)]="selectedType">
+                    <mat-option *ngFor="let type of allTypes" [value]="type" (click)="typeChanged(type)">
+                      {{type}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              
+              <div class="mb-5">
+                <label class="form-label" for="comments">Additional Comments</label>
+                <textarea [(ngModel)]="inputComments" formControlName="comments" class="form-control" id="comments" rows="5" maxlength="1000"></textarea>
+                <label class="form-label">Remaining Characters: {{ getRemainingCommentCharacters() }}</label>
+              </div>
+
+              <ngx-dropzone [multiple]="false" accept="image/jpeg,image/jpg,image/png" (change)="onSelect($event)" style="width: 524px; height: 240px; justify-content: center; border-style: solid; border-color: #F9A825;" class="mb-5">
+                <ngx-dropzone-label style="color: #F9A825;">Drop your image here!</ngx-dropzone-label>
+                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
+                </ngx-dropzone-image-preview>
+              </ngx-dropzone>
+
+              <button class="btn btn-dark btn-lg" type="button" (click)="navigateBack()" style="background-color:white; color:gray; box-shadow: none; height: 50px; border:gray 2px solid; width: 150px; margin-right: 220px;">Cancel</button>
+              <button class="btn btn-dark btn-lg" type="submit" style="background-color:#F9A825; color: white; box-shadow: none; height: 50px; width: 150px;">Update</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

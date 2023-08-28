@@ -1,0 +1,14 @@
+.nutrition_card{
+    position: relative;
+}
+
+.nutrition_button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+}
+
+.nutrition_pannel{
+    margin-top: 30px !important; 
+}

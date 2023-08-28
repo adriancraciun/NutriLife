@@ -1,0 +1,57 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="z-index: 9999; background-color: white; font-size: 16px;">
+    <!-- Container wrapper -->
+    <div class="container">
+      <!-- Navbar brand -->
+      <a class="navbar-brand me-2" [routerLink]="" (click)="navigateHome()" style="cursor: pointer; border: none;">
+        <img
+          src="assets/images/NutriLifeLogo.jpg"
+          height="40"
+          alt=""
+          loading="lazy"
+          style="margin-top: -1px;"
+        />
+      </a>
+  
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item me-5">
+            <a class="nav-link" [routerLink]="" (click)="navigateHome()" style="cursor: pointer;">Home</a>
+          </li>
+          <li class="nav-item me-5">
+            <a class="nav-link" [routerLink]="" (click)="navigateAboutUs()" style="cursor: pointer;">About Us</a>
+          </li>
+          <li class="nav-item me-5">
+            <a class="nav-link" [routerLink]="" (click)="navigateContact()" style="cursor: pointer;">Contact</a>
+          </li>
+        </ul>
+
+        <div class="dropdown">
+          <a 
+          class="dropbtn"
+          id="navbarDropdownMenuLink"
+          style="align-self:center;"
+          role="button"
+          mdbDropdownToggle
+          aria-expanded="false"
+          >
+            <img [src]="profileImageUrl" alt="User Image" style="width: 50px; border-radius: 30px;">
+          </a>
+
+          <div class="dropdown-content" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" [routerLink]="" (click)="navigateProfileUser()" style="cursor: pointer;">My Profile</a>
+                <a class="dropdown-item" [routerLink]="" (click)="navigateUserPrograms()" style="cursor: pointer;">My Programs</a>
+                <a class="dropdown-item" [routerLink]="" (click)="navigateUserFavourites()" style="cursor: pointer;">Favourites</a>
+                <a class="dropdown-item" [routerLink]="" (click)="navigateLogout()" style="cursor: pointer;">Log Out</a>
+            </div>
+        </div>
+
+        <!-- <div class="dropdown-content" aria-labelledby="navbarDropdownMenuLink">
+          <img [src]="profileImageUrl" alt="User Image" style="width: 50px; border-radius: 30px;">
+          <a class="dropdown-item" [routerLink]="" (click)="navigateLogin()" style="cursor: pointer;">Log In</a>
+          <a class="dropdown-item" [routerLink]="" (click)="navigateSignup()" style="cursor: pointer;">Sign Up</a>
+        </div> -->
+      </div>
+      <!-- Collapsible wrapper -->
+  </nav>
+  <!-- Navbar -->

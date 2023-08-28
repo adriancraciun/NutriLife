@@ -1,0 +1,10 @@
+<div>
+    <h1 class="mb-4" style="text-align: center; font-weight: bold;" mat-dialog-title>{{ data.title }}</h1>
+    <div mat-dialog-content class="mb-5">
+        <h2 style="font-weight:500;">{{ data.message }}</h2>
+    </div>
+    <div mat-dialog-actions>
+        <button (click)="onNoClick()" class="btn btn-dark btn-lg" style="background-color:#F9A825; color: white; box-shadow: none; margin-right: 140px;">Cancel</button>
+        <button (click)="onYesClick()" class="btn btn-dark btn-lg" style="background-color:#D32F2F; color: white; box-shadow: none;">Delete</button>
+    </div>
+</div>
