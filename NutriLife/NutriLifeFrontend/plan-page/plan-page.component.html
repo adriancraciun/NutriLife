@@ -1,0 +1,107 @@
+<app-navbarmain></app-navbarmain>
+<span class="h1 fw-bold mb-0" style="color: #F9A825; position: relative; top: 50px; left:130px">{{this.plan?.name}} </span>
+
+<!-- <h1 class="large fw-bold " style="color: #F9A825; margin-top: 40px; margin-left: 130px;"> {{this.plan?.name}} </h1> -->
+
+<div class="row" style="margin-top: 80px; margin-left: 120px;">
+    <div class="col container">
+        <img style="width: 560px; height: 376px; border-radius: 20px;" [src]="getDailyPlanImage(plan?.id)" class="card-img-top shadow-lg rounded"/>
+        
+        <h3 style="color: #808080; margin-top: 30px;"> 
+            Made by {{this.plan?.user?.firstName}} {{this.plan?.user?.middleName}} {{this.plan?.user?.lastName}}
+        </h3>
+        
+        <span style="border: none; position: relative; bottom: 430px; left: 420px;">
+            <h1 (click)="toggleHeartNoAccount()" style="color: #00BFA5; cursor: pointer; width: 120px; background-color: white; padding: 12px; border-radius: 20px; text-align: right; padding-right: 62px;" > 
+                {{this.plan?.hearts}}
+            </h1>
+            <img (click)="toggleHeartNoAccount()" src="assets/icons/heart.png" style="width: 40px; position: relative; bottom: 64px; left: 65px; cursor: pointer;">
+        </span>
+    </div>
+
+    <div class="col">
+        <div class="col container">
+            <div class="row">
+                <div class="col-3">
+                    <h3 style="color: #808080"> Breakfast: </h3>
+                </div>
+                <div class="col">
+                    <h3 style="color: #808080"> {{this.plan?.breakfast}} </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <h3 style="color: #808080"> Lunch: </h3>
+                </div>
+                <div class="col">
+                    <h3 style="color: #808080"> {{this.plan?.lunch}} </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <h3 style="color: #808080"> Dinner: </h3>
+                </div>
+                <div class="col">
+                    <h3 style="color: #808080"> {{this.plan?.dinner}} </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <h3 style="color: #808080"> Snack: </h3>
+                </div>
+                <div class="col">
+                    <h3 style="color: #808080"> {{this.plan?.snack}} </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <h3 style="color: #808080"> Calories: </h3>
+                </div>
+                <div class="col">
+                    <h3 style="color: #808080"> {{this.plan?.calories}} </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <h3 style="color: #808080"> Type: </h3>
+                </div>
+                <div class="col">
+                    <h3 style="color: #808080"> {{this.plan?.type}} </h3>
+                </div>
+            </div>
+    
+    
+            <div class="row" [style.color]="plan?.glutenFree === true ? '#00BFA5' : '#EF5350'">
+                <div class="col-3">
+                    <h3> Gluten Free: </h3>
+                </div>
+                <div class="col">
+                    <h3> {{this.plan?.glutenFree}} </h3>
+                </div>
+            </div>
+            <div class="row" [style.color]="plan?.lactoseIntolerant === true ? '#00BFA5' : '#EF5350'">
+                <div class="col-3">
+                    <h3> Diary Free: </h3>
+                </div>
+                <div class="col">
+                    <h3> {{this.plan?.lactoseIntolerant}} </h3>
+                </div>
+            </div>
+            <div class="row" [style.color]="plan?.diabetesFriendly === true ? '#00BFA5' : '#EF5350'">
+                <div class="col-3">
+                    <h3> Diabetes Friendly: </h3>
+                </div>
+                <div class="col">
+                    <h3> {{this.plan?.diabetesFriendly}} </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="margin-right: 120px; margin-left: 130px; margin-top: -60px; margin-bottom: 50px;">
+    <h2 style="color: #808080">Additional Comments</h2>
+    <h3 style="color: #808080"> {{this.plan?.comments}} </h3>
+</div>
+
+<app-footer></app-footer>
